@@ -4,5 +4,7 @@ it is meant for people who lack physical activity and want to lead a healthier l
 How to run: 
 
 -npm install
+
 -npm start
+
 -open on android emulator or download Expo and scan the QR code
