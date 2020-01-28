@@ -1,40 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Animated } from 'react-native';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 const Card = props => {
 
-    // animation starts from zero
-    const [fadeIn] = useState(new Animated.Value(0))
-
-    useEffect(() => {
-        Animated.timing(
-            fadeIn,
-            {
-                toValue: 1,
-                duration: 5000
-            }
-        ).start();
-    }, [])
+    const { navigate } = props.navigation;
 
     return (
-        <Animated.View style={{ opacity: fadeIn, ...styles.container, ...props.style }}>
-            {props.children}
-        </Animated.View>
+        // inherits parents styles plus it's own, on click changes to given prop
+        <TouchableOpacity style={{ ...styles.container, ...props.style }} activeOpacity={.5}  onPress={() => {navigate(props.href)}}>
+            <Text style={{...styles.text}}>{props.title}</Text>
+        </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        borderWidth: 2,
-        width: '80%',
-        borderRadius: 20,
-        height: 100,
-        width: 300,
+        width: 350,
+        height: 60,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 50,
-        backgroundColor: '#a896b3',
-        opacity: 0.8
+        backgroundColor: '#0db5ba'
+    },
+    text: {
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        fontSize: 20,
     }
 })
 

@@ -1,35 +1,56 @@
-import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import * as Font from 'expo-font';
-import Header from './components/Header'
-import TimeQuery from './components/TimeQuery';
+import { StyleSheet } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-export default function App() {
 
-  // hide keyboard if user clicks anywhere
-  const DismissKeyboard = ({ children }) => (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      {children}
-    </TouchableWithoutFeedback>
-  )
+import Landing from './components/pages/Landing';
+import Account from './components/Account';
 
-  return (
-    <DismissKeyboard>
-      <ImageBackground source={require('./assets/yoga.jpg')} style={styles.image}>
-        <Header />
-        <TimeQuery />
-      </ImageBackground>
-    </DismissKeyboard>
-  );
-}
+
+const App = createStackNavigator(
+
+  {
+    Landing: {
+      screen: Landing,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Account: {
+      screen: Account,
+      navigationOptions: {
+        headerTitle: 'Account'
+      }
+    }
+  },
+  {
+    initialRouteName: 'Landing',
+    defaultNavigationOptions: {
+      // headerStyle: {
+      //   height: 50,
+      // },
+      // headerTintColor: 'orange',
+      // headerTitleStyle: {
+      //   fontWeight: 'bold',
+      //   color: 'red'
+      // },
+      // headerBackTitle: 'Yeet',
+      // headerBackTitleVisible: true
+
+    },
+  }
+);
+
+
+
 
 const styles = StyleSheet.create({
-
-  image: {
-    width: null,
-    height: null,
+  container: {
     flex: 1,
-    alignSelf: 'stretch',
-    alignItems: 'center'
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    backgroundColor: 'red'
   }
 });
+
+export default createAppContainer(App)
