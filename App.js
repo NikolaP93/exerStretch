@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 
 import Landing from './components/pages/Landing';
-import Account from './components/Account';
+import Account from './components/pages/Account';
 
 
 const App = createStackNavigator(

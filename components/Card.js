@@ -7,8 +7,11 @@ const Card = props => {
 
     return (
         // inherits parents styles plus it's own, on click changes to given prop
-        <TouchableOpacity style={{ ...styles.container, ...props.style }} activeOpacity={.5}  onPress={() => {navigate(props.href)}}>
-            <Text style={{...styles.text}}>{props.title}</Text>
+        <TouchableOpacity 
+        style={{ ...styles.container, ...props.style }} 
+        activeOpacity={.5} 
+        onPress={() => { navigate(props.href); props.fn}}>
+            <Text style={{ ...styles.text }}>{props.title}</Text>
         </TouchableOpacity>
     )
 }
