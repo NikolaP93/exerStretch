@@ -1,14 +1,16 @@
 import { StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
+// createStackNavigator is a function that takes a route configuration object and an options object and returns a React component.
 
 import Landing from './components/pages/Landing';
 import Account from './components/pages/Account';
+import Welcome from './components/pages/Welcome';
 
 
 const App = createStackNavigator(
 
+  //shorthand config
   {
     Landing: {
       screen: Landing,
@@ -21,36 +23,16 @@ const App = createStackNavigator(
       navigationOptions: {
         headerTitle: 'Account'
       }
+    },
+    Welcome: {
+      screen: Welcome
     }
   },
   {
-    initialRouteName: 'Landing',
-    defaultNavigationOptions: {
-      // headerStyle: {
-      //   height: 50,
-      // },
-      // headerTintColor: 'orange',
-      // headerTitleStyle: {
-      //   fontWeight: 'bold',
-      //   color: 'red'
-      // },
-      // headerBackTitle: 'Yeet',
-      // headerBackTitleVisible: true
-
-    },
+    initialRouteName: 'Landing'
   }
 );
 
 
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    backgroundColor: 'red'
-  }
-});
-
+// navigation container
 export default createAppContainer(App)

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "648171194018",
+    "firebase_url": "https://exerstretch.firebaseio.com",
+    "project_id": "exerstretch",
+    "storage_bucket": "exerstretch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648171194018:android:974dac141280a53d0e39fb",
+        "android_client_info": {
+          "package_name": "exerstretch.expo.googlesignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648171194018-bb4o6jogn1q4v55l8g72ea983b16hmvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIWwDj3cy11zhq-Ix-SZM0GZW7m6rUvNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648171194018-bb4o6jogn1q4v55l8g72ea983b16hmvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

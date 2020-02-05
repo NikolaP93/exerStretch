@@ -5,12 +5,14 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import Card from '../Card';
+import Auxiliary from '../../hoc/Auxiliary';
 
 
 const Landing = props => {
 
+
     return (
-        <View style={styles.container}>
+        <Auxiliary style={styles.container}>
             <LinearGradient colors={['#C8C8C8', '#FFFFFF']} style={{ flex: 1 }} start={{ x: 0, y: 1 }}
                 end={{ x: .2, y: 1 }}>
                 <View style={styles.textContainer}>
@@ -20,11 +22,14 @@ const Landing = props => {
                     </Text>
                     <Text style={styles.h2}>Welcome to our Club</Text>
                     <Text style={styles.h3}>We need some information to make a perfect workout experience for you.</Text>
-                    <Card title={'Start'} navigation={props.navigation} href={'Account'}></Card>
+                    <Card title={'Start'}
+                        navigation={props.navigation}
+                        href={'Account'}
+                        ></Card>
                     <Image source={require('../../assets/yoga.png')} style={styles.logo} />
                 </View>
             </LinearGradient>
-        </View>
+        </Auxiliary>
     )
 }
 

@@ -13,6 +13,8 @@
     "expo": "~36.0.0",
     "expo-av": "~8.0.0",
     "expo-font": "~8.0.0",
+    "expo-google-app-auth": "^8.0.1",
+    "expo-google-sign-in": "~8.0.0",
     "expo-linear-gradient": "~8.0.0",
     "expo-video-player": "^1.5.5",
     "react": "~16.9.0",
