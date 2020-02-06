@@ -1,31 +1,57 @@
 import React from 'react';
-import { View, StyleSheet, Text, Button } from 'react-native';
+import { View, StyleSheet, Text, Image } from 'react-native';
 
 import Card from '../Card';
+import Header from '../header/Header';
+import Auxiliary from '../../hoc/Auxiliary';
 
 const Welcome = props => {
 
     return (
-        <View style={styles.container}>
-            <Text>Welcome page</Text>
-        </View>
+        <Auxiliary>
+            <Header style={styles.container}>
+                <View style={styles.titles}>
+                    <Text style={styles.h1}>Good Morning</Text>
+                    <Text style={styles.h2}>King</Text>
+                </View>
+                <Image source={require('../../assets/yoga.png')} style={styles.logo} />
+                <Image source={require('../../assets/sun.png')} style={styles.sun} />
+            </Header>
+        </Auxiliary>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        height: 'auto',
-        width: '100%',
-        alignItems: 'center',
-        marginTop: 10
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        paddingTop: 50
     },
-    input: {
+    titles: {
+        marginLeft: 30,
+        width: '30%',
+        marginTop: 20
+    },
+    h1: {
+        fontSize: 20,
+        opacity: 0.4,
+        fontWeight: 'bold',
+        marginBottom: 5
+    },
+    h2: {
+        color: '#ffffff',
+        fontSize: 18
+    },
+    logo: {
+        marginRight: 10,
+        height: 120,
+        width: 150,
+        left: 80
+    },
+    sun: {
         height: 50,
-        width: '90%',
-        borderWidth: 1,
-        borderRadius: 5,
-        marginVertical: 5,
-        paddingHorizontal: 5
+        width: 50,
+        top: -20
     }
 });
 

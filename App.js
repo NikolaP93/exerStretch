@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 // createStackNavigator is a function that takes a route configuration object and an options object and returns a React component.
@@ -25,7 +24,10 @@ const App = createStackNavigator(
       }
     },
     Welcome: {
-      screen: Welcome
+      screen: Welcome,
+      navigationOptions: {
+        header: null
+      }
     }
   },
   {
