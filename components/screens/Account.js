@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Button, ActivityIndicator } from 'react-native';
+import { StyleSheet, ActivityIndicator } from 'react-native';
 
 import * as Google from 'expo-google-app-auth';
 import Auxiliary from '../../hoc/Auxiliary';
@@ -11,20 +11,22 @@ const Account = props => {
 
     //sign in with google and navigate to the welcome page
     const signInWithGoogleAsync = async () => {
-        try {
-            setLoading(true)
-            const result = await Google.logInAsync({
-                androidClientId: '241453931910-lci0pp08uds0e66b9abacv32gbcvaq9k.apps.googleusercontent.com',
-                scopes: ['profile', 'email']
-            });
-            if (result.type === 'success') {
-                props.navigation.navigate('Welcome');
-            } else {
-                props.navigation.navigate('Account');
-            }
-        } catch (e) {
-            console.log(e)
-        }
+        // try {
+        //     setLoading(true)
+        //     const result = await Google.logInAsync({
+        //         androidClientId: '241453931910-lci0pp08uds0e66b9abacv32gbcvaq9k.apps.googleusercontent.com',
+        //         scopes: ['profile', 'email']
+        //     });
+        //     if (result.type === 'success') {
+        //         props.navigation.navigate('Welcome');
+        //         console.log(result.user)
+        //     } else {
+        //         props.navigation.navigate('Account');
+        //     }
+        // } catch (e) {
+        //     console.log(e)
+        // }
+        props.navigation.navigate('Welcome')
     }
 
     let content = 

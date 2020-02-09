@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,7 +29,7 @@ const Card = (props) => {
   };
 
   return (
-  // inherits parents styles plus it's own, on click changes to given prop
+    // inherits parents styles plus it's own, on click changes to given prop
     <TouchableOpacity
       style={{ ...styles.container, ...props.style }}
       activeOpacity={0.5}
@@ -39,5 +40,20 @@ const Card = (props) => {
   );
 };
 
+Card.defaultProps = {
+  signin: null,
+  navigation: null,
+  style: null,
+  title: 'Card',
+  href: 'Account',
+};
+
+Card.propTypes = {
+  signin: PropTypes.func,
+  navigation: PropTypes.object,
+  style: PropTypes.object,
+  title: PropTypes.string,
+  href: PropTypes.string,
+};
 
 export default Card;
