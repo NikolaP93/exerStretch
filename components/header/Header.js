@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Auxiliary from '../../hoc/Auxiliary';
-
+import Colors from '../../constants/Colors';
 
 const Header = props => {
     return (
@@ -14,7 +14,7 @@ const Header = props => {
 const styles = StyleSheet.create({
     container: {
         height: 225,
-        backgroundColor: '#0db5ba',
+        backgroundColor: Colors.primary,
         borderBottomStartRadius: 30,
         borderBottomEndRadius: 30
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import PropTypes from 'prop-types';
+import Colors from '../constants/Colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 50,
-    backgroundColor: '#0db5ba',
+    backgroundColor: Colors.primary,
   },
   text: {
     textTransform: 'uppercase',

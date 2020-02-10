@@ -10,7 +10,10 @@
   "dependencies": {
     "@react-native-community/masked-view": "0.1.5",
     "@react-native-community/netinfo": "4.6.0",
+    "@react-native-community/viewpager": "2.0.2",
     "@react-navigation/bottom-tabs": "^5.0.0",
+    "@react-navigation/material-bottom-tabs": "^5.0.0",
+    "@react-navigation/material-top-tabs": "^5.0.0",
     "eslint-config-expo": "^6.0.0",
     "expo": "^36.0.0",
     "expo-av": "~8.0.0",
@@ -18,17 +21,20 @@
     "expo-google-app-auth": "^8.0.1",
     "expo-google-sign-in": "~8.0.0",
     "expo-linear-gradient": "~8.0.0",
-    "expo-video-player": "^1.5.5",
     "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-hook-form": "^4.7.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
     "react-native-gesture-handler": "~1.5.0",
+    "react-native-paper": "^3.6.0",
     "react-native-reanimated": "~1.4.0",
     "react-native-safe-area-context": "0.6.0",
     "react-native-screens": "2.0.0-alpha.12",
-    "react-navigation": "^3.11.0"
+    "react-native-swiper": "^1.6.0-nightly.5",
+    "react-native-tab-view": "^2.13.0",
+    "react-navigation": "^4.1.1",
+    "react-navigation-tabs": "^2.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

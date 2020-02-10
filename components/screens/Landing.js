@@ -1,11 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
-
-
 import { LinearGradient } from 'expo-linear-gradient';
 
 import Card from '../Card';
 import Auxiliary from '../../hoc/Auxiliary';
+import Colors from '../../constants/Colors';
 
 
 const Landing = props => {
@@ -17,7 +16,7 @@ const Landing = props => {
                 end={{ x: .2, y: 1 }}>
                 <View style={styles.textContainer}>
                     <Text style={styles.h1}>
-                        <Text style={{ color: '#0db5ba' }}>Exer</Text>
+                        <Text style={{ color: Colors.primary }}>Exer</Text>
                         <Text>stretch</Text>
                     </Text>
                     <Text style={styles.h2}>Welcome to our Club</Text>
