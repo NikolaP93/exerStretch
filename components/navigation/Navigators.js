@@ -11,9 +11,6 @@ import ProfileSettings from '../screens/ProfileSettings';
 import ActiveBarComponent from './ActiveBarComponent';
 import Colors from '../../constants/Colors';
 
-// const DashboardTabNavigator = createMaterialTopTabNavigator({
-//   Welcome: Welcome
-// })
 
 const DashboardTabNavigator = createMaterialTopTabNavigator({
   Welcome: {
@@ -72,7 +69,6 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
       showIcon: true
     },
     tabBarPosition: 'bottom',
-
   }
 )
 

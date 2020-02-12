@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import Auxiliary from '../../hoc/Auxiliary';
 
-const WorkoutList = () => {
+const WorkoutList = props => {
+
     return (
         <Auxiliary style={styles.container}>
             <Text>WorkoutList page</Text>

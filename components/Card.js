@@ -24,6 +24,7 @@ const Card = (props) => {
   const navigateAndExecuteFunction = () => {
     if (props.signin) {
       props.signin();
+      props.navigation.navigate(props.href);
     } else {
       props.navigation.navigate(props.href);
     }
