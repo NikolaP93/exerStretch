@@ -2,12 +2,12 @@ import React from 'react';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-import Landing from '../screens/Landing';
-import Account from '../screens/Account';
-import Welcome from '../screens/Welcome';
-import Workout from '../screens/Workout';
-import WorkoutList from '../screens/WorkoutList';
-import ProfileSettings from '../screens/ProfileSettings';
+import Landing from '../../screens/Landing';
+import Account from '../../screens/Account';
+import Welcome from '../../screens/Welcome';
+import Workout from '../../screens/Workout';
+import WorkoutList from '../../screens/WorkoutList';
+import ProfileSettings from '../../screens/ProfileSettings';
 import ActiveBarComponent from './ActiveBarComponent';
 import Colors from '../../constants/Colors';
 

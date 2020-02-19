@@ -2,13 +2,12 @@ import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import Card from '../Card';
-import Auxiliary from '../../hoc/Auxiliary';
-import Colors from '../../constants/Colors';
+import Card from '../components/Card';
+import Auxiliary from '../hoc/Auxiliary';
+import Colors from '../constants/Colors';
 
 
 const Landing = props => {
-
 
     return (
         <Auxiliary style={styles.container}>
@@ -25,7 +24,7 @@ const Landing = props => {
                         navigation={props.navigation}
                         href={'Account'}
                         ></Card>
-                    <Image source={require('../../assets/yoga.png')} style={styles.logo} />
+                    <Image source={require('../assets/yoga.png')} style={styles.logo} />
                 </View>
             </LinearGradient>
         </Auxiliary>

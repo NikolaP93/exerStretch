@@ -4,10 +4,10 @@ import { StyleSheet, ActivityIndicator } from 'react-native';
 import firebase from 'firebase';
 
 import * as Google from 'expo-google-app-auth';
-import Auxiliary from '../../hoc/Auxiliary';
-import Card from '../Card';
+import Auxiliary from '../hoc/Auxiliary';
+import Card from '../components/Card';
 
-import { UserContext } from '../../UserContext';
+import { UserContext } from '../UserContext';
 
 
 const Account = props => {

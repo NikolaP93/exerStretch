@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
-import Auxiliary from '../../hoc/Auxiliary';
+import { StyleSheet, View, FlatList } from 'react-native';
+import Auxiliary from '../hoc/Auxiliary';
 import firebase from 'firebase';
-import Card from '../Card';
-import { UserContext } from '../../UserContext';
+import Card from '../components/Card';
+import { UserContext } from '../UserContext';
 
 
 
@@ -50,9 +50,6 @@ const ProfileSettings = props => {
         },
 
     ]
-
-
-
 
     return (
         <Auxiliary style={styles.container}>

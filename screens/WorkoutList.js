@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
-import Auxiliary from '../../hoc/Auxiliary';
+import Auxiliary from '../hoc/Auxiliary';
 
 const WorkoutList = props => {
 

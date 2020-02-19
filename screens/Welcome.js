@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 
-import Header from '../header/Header';
-import Auxiliary from '../../hoc/Auxiliary';
-import { UserContext } from '../../UserContext';
+import Header from '../components/header/Header';
+import ProgressBar from '../components/progressBar/ProgressBar';
+import Auxiliary from '../hoc/Auxiliary';
+import { UserContext } from '../UserContext';
 
 const Welcome = props => {
 
@@ -21,13 +22,13 @@ const Welcome = props => {
         <Auxiliary>
             <Header style={styles.container}>
                 <View style={styles.titles}>
-                    <Text style={styles.h1}>Welcome</Text>
+                    <Text style={styles.h1}>Good Morning</Text>
                     <Text style={styles.h2}>{firstName}</Text>
                 </View>
-                <Image source={require('../../assets/yoga.png')} style={styles.logo} />
-                <Image source={require('../../assets/sun.png')} style={styles.sun} />
-
+                <Image source={require('../assets/yoga.png')} style={styles.logo} />
+                <Image source={require('../assets/sun.png')} style={styles.sun} />
             </Header>
+            
 
         </Auxiliary>
     )
