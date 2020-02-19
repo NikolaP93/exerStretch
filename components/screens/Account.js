@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { StyleSheet, ActivityIndicator } from 'react-native';
 
 import firebase from 'firebase';
@@ -7,18 +7,26 @@ import * as Google from 'expo-google-app-auth';
 import Auxiliary from '../../hoc/Auxiliary';
 import Card from '../Card';
 
+import { UserContext } from '../../UserContext';
+
+
 const Account = props => {
+
+    const { user, setUser } = useContext(UserContext);
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user !== null) {
+                firebase.auth().signOut();
+                return;
+            } 
+        })
+    }, []);
 
     const [loading, setLoading] = useState(false);
 
     // if user is logged in, logout (testing phase) / 
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                props.navigation.navigate('Welcome')
-            }
-        })
-    }, []);
+
 
     const isUserEqual = (googleUser, firebaseUser) => {
         if (firebaseUser) {
@@ -35,7 +43,6 @@ const Account = props => {
     }
 
     const onSignIn = googleUser => {
-        console.log('Google Auth Response', googleUser);
         // We need to register an Observer on Firebase Auth to make sure auth is initialized.
         var unsubscribe = firebase.auth().onAuthStateChanged(function (firebaseUser) {
             unsubscribe();
@@ -56,12 +63,6 @@ const Account = props => {
                                 profile_picture: result.user.photoURL,
                                 display_name: result.user.displayName,
                                 created_at: Date.now()
-                            })
-
-                    } else {
-                        firebase.database()
-                            .ref('/users/' + result.user.uid).update({
-                                last_logged_in: Date.now()
                             })
                     }
                 }).catch(function (error) {
@@ -93,6 +94,8 @@ const Account = props => {
                 // Build Firebase credential with the Facebook access token.
                 const credential = firebase.auth.GoogleAuthProvider.credential(result);
 
+                setUser(result);
+
                 // Sign in with credential from the Facebook user.
                 firebase.auth().signInWithCredential(credential).catch((error) => {
                     // Handle Errors here.
@@ -110,7 +113,7 @@ const Account = props => {
 
     let content =
         <Card title={'Google Login'}
-            signin={signInWithGoogleAsync}
+            passedFunction={signInWithGoogleAsync}
             navigation={props.navigation}
             href={'Account'}
         ></Card>

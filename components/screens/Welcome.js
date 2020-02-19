@@ -1,27 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 
-import Card from '../Card';
 import Header from '../header/Header';
 import Auxiliary from '../../hoc/Auxiliary';
+import { UserContext } from '../../UserContext';
 
 const Welcome = props => {
+
+    //destructure user object returned from user
+    const { user: {
+        user
+    },
+        setUser
+    } = useContext(UserContext);
+
+    const firstName = user.givenName;
+
 
     return (
         <Auxiliary>
             <Header style={styles.container}>
                 <View style={styles.titles}>
-                    <Text style={styles.h1}>Good Morning</Text>
-                    <Text style={styles.h2}>King</Text>
+                    <Text style={styles.h1}>Welcome</Text>
+                    <Text style={styles.h2}>{firstName}</Text>
                 </View>
                 <Image source={require('../../assets/yoga.png')} style={styles.logo} />
                 <Image source={require('../../assets/sun.png')} style={styles.sun} />
+
             </Header>
+
         </Auxiliary>
     )
 }
 
 const styles = StyleSheet.create({
+    image: {
+        height: 200,
+        width: 200
+    },
     container: {
         justifyContent: 'space-between',
         flexDirection: 'row',
@@ -40,7 +56,7 @@ const styles = StyleSheet.create({
     },
     h2: {
         color: '#ffffff',
-        fontSize: 18
+        fontSize: 20
     },
     logo: {
         marginRight: 10,
@@ -52,7 +68,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         top: -20
-    }
+    },
 });
 
 export default Welcome;

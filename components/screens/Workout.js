@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import Auxiliary from '../../hoc/Auxiliary';
 
+
 const Workout = () => {
     return (
         <Auxiliary style={styles.container}>

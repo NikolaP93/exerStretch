@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
 
 //firebase config
@@ -8,11 +8,17 @@ firebase.initializeApp(firebaseConfig);
 
 
 import { AppContainer } from './components/navigation/Navigators';
+import { UserContext } from './UserContext';
 
 const App = () => {
+
+  const [user, setUser] = useState();
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-      <AppContainer />
+    <SafeAreaView style={{ flex: 1 }}>
+      <UserContext.Provider value={{ user, setUser }}>
+        <AppContainer />
+      </UserContext.Provider>
     </SafeAreaView>
   )
 };
