@@ -8,6 +8,7 @@ import Auxiliary from '../hoc/Auxiliary';
 import Card from '../components/Card';
 
 import { UserContext } from '../UserContext';
+import ENV from '../environment';
 
 
 const Account = props => {
@@ -19,7 +20,7 @@ const Account = props => {
             if (user !== null) {
                 firebase.auth().signOut();
                 return;
-            } 
+            }
         })
     }, []);
 
@@ -86,7 +87,7 @@ const Account = props => {
         try {
             setLoading(true)
             const result = await Google.logInAsync({
-                androidClientId: '241453931910-lci0pp08uds0e66b9abacv32gbcvaq9k.apps.googleusercontent.com',
+                androidClientId: ENV.firebaseConfig.androidClientId,
                 scopes: ['profile', 'email']
             });
             if (result.type === 'success') {

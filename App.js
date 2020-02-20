@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native';
 
 //firebase config
 import * as firebase from 'firebase';
-import { firebaseConfig } from './config';
-firebase.initializeApp(firebaseConfig);
+import ENV from './environment.js';
+
+firebase.initializeApp(ENV.firebaseConfig);
 
 
 import { AppContainer } from './components/navigation/Navigators';
 import { UserContext } from './UserContext';
 
 const App = () => {
-
   const [user, setUser] = useState();
 
   return (
