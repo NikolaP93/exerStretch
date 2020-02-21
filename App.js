@@ -8,9 +8,8 @@ import ENV from './environment.js';
 firebase.initializeApp(ENV.firebaseConfig);
 
 import { AppContainer } from './components/navigation/Navigators';
-import { UserContext } from './UserContext';
-import { LoadingContext } from './LoadingContext.js';
-import Loading from './components/loading/Loading.js';
+import { UserContext } from './Contexts/UserContext';
+import { LoadingContext } from './Contexts/LoadingContext';
 
 const App = () => {
   const [user, setUser] = useState();

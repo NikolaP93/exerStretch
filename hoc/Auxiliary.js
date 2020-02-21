@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { View } from 'react-native';
-import { LoadingContext } from '../LoadingContext';
+import { LoadingContext } from '../Contexts/LoadingContext';
 import Loading from '../components/loading/Loading';
 
 const Auxiliary = props => {

@@ -3,8 +3,8 @@ import { StyleSheet, View, FlatList } from 'react-native';
 import Auxiliary from '../hoc/Auxiliary';
 import firebase from 'firebase';
 import Card from '../components/Card';
-import { UserContext } from '../UserContext';
-import { LoadingContext } from '../LoadingContext';
+import { UserContext } from '../Contexts/UserContext';
+import { LoadingContext } from '../Contexts/LoadingContext';
 
 
 
@@ -64,7 +64,7 @@ const ProfileSettings = props => {
                         <Card
                             id={item.id}
                             navigation={props.navigation}
-                            href={item.href ? item.href : 'Welcome'}
+                            href={item.href ? item.href : 'ProfileSettings'}
                             style={styles.item}
                             title={item.title}
                             iconTitle={item.iconTitle}

@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { StyleSheet, ActivityIndicator } from 'react-native';
+import React, { useEffect, useContext } from 'react';
+import { StyleSheet } from 'react-native';
+import ENV from '../environment';
 
 import firebase from 'firebase';
-
 import * as Google from 'expo-google-app-auth';
+
 import Auxiliary from '../hoc/Auxiliary';
 import Card from '../components/Card';
 
-import { UserContext } from '../UserContext';
-import { LoadingContext } from '../LoadingContext';
-import ENV from '../environment';
-import Loading from '../components/loading/Loading';
+import { UserContext } from '../Contexts/UserContext';
+import { LoadingContext } from '../Contexts/LoadingContext';
 
 
 const Account = props => {

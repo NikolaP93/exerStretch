@@ -4,8 +4,8 @@ import { View, StyleSheet, Text, Image } from 'react-native';
 import Header from '../components/header/Header';
 import ProgressBar from '../components/progressBar/ProgressBar';
 import Auxiliary from '../hoc/Auxiliary';
-import { UserContext } from '../UserContext';
-import { LoadingContext } from '../LoadingContext';
+import { UserContext } from '../Contexts/UserContext';
+import { LoadingContext } from '../Contexts/LoadingContext';
 
 const Welcome = props => {
 
