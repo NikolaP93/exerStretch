@@ -8,12 +8,16 @@ import Auxiliary from '../hoc/Auxiliary';
 import Card from '../components/Card';
 
 import { UserContext } from '../UserContext';
+import { LoadingContext } from '../LoadingContext';
 import ENV from '../environment';
+import Loading from '../components/loading/Loading';
 
 
 const Account = props => {
 
     const { user, setUser } = useContext(UserContext);
+    const { loading, setLoading } = useContext(LoadingContext);
+
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -21,13 +25,9 @@ const Account = props => {
                 firebase.auth().signOut();
                 return;
             }
-        })
+        });
+        setLoading(false)
     }, []);
-
-    const [loading, setLoading] = useState(false);
-
-    // if user is logged in, logout (testing phase) / 
-
 
     const isUserEqual = (googleUser, firebaseUser) => {
         if (firebaseUser) {
@@ -84,8 +84,8 @@ const Account = props => {
 
     //sign in with google and navigate to the welcome page
     const signInWithGoogleAsync = async () => {
+        setLoading(true)
         try {
-            setLoading(true)
             const result = await Google.logInAsync({
                 androidClientId: ENV.firebaseConfig.androidClientId,
                 scopes: ['profile', 'email']
@@ -101,7 +101,6 @@ const Account = props => {
                 firebase.auth().signInWithCredential(credential).catch((error) => {
                     // Handle Errors here.
                 });
-
                 props.navigation.navigate('Welcome');
             } else {
                 props.navigation.navigate('Account');
@@ -109,7 +108,7 @@ const Account = props => {
         } catch (e) {
             console.log(e)
         }
-        props.navigation.navigate('Welcome')
+
     }
 
     let content =
@@ -118,10 +117,6 @@ const Account = props => {
             navigation={props.navigation}
             href={'Account'}
         ></Card>
-
-    if (loading) {
-        content = <ActivityIndicator size="large" color="#0000ff" />;
-    }
 
     return (
         <Auxiliary style={styles.container}>

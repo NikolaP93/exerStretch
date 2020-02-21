@@ -4,16 +4,20 @@ import Auxiliary from '../hoc/Auxiliary';
 import firebase from 'firebase';
 import Card from '../components/Card';
 import { UserContext } from '../UserContext';
+import { LoadingContext } from '../LoadingContext';
 
 
 
 const ProfileSettings = props => {
 
     const { user } = useContext(UserContext);
+    const { loading, setLoading } = useContext(LoadingContext)
 
     const logout = async () => {
+        setLoading(true)
         await firebase.auth().signOut();
     }
+
 
     const data = [
         {
@@ -39,7 +43,7 @@ const ProfileSettings = props => {
         {
             id: 'About',
             title: 'About',
-            iconTitle: 'info'
+            iconTitle: 'info',
         },
         {
             id: 'Logout',

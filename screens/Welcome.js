@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 
 import Header from '../components/header/Header';
 import ProgressBar from '../components/progressBar/ProgressBar';
 import Auxiliary from '../hoc/Auxiliary';
 import { UserContext } from '../UserContext';
+import { LoadingContext } from '../LoadingContext';
 
 const Welcome = props => {
 
@@ -14,6 +15,11 @@ const Welcome = props => {
     },
         setUser
     } = useContext(UserContext);
+    const { loading, setLoading } = useContext(LoadingContext);
+
+    useEffect(() => {
+        setLoading(false)
+    }, )
 
     const firstName = user.givenName;
 
@@ -28,7 +34,7 @@ const Welcome = props => {
                 <Image source={require('../assets/yoga.png')} style={styles.logo} />
                 <Image source={require('../assets/sun.png')} style={styles.sun} />
             </Header>
-            
+
 
         </Auxiliary>
     )
@@ -42,7 +48,7 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-        paddingTop: 50
+        paddingTop: 50,
     },
     titles: {
         marginLeft: 30,

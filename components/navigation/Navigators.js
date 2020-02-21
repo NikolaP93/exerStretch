@@ -10,6 +10,7 @@ import WorkoutList from '../../screens/WorkoutList';
 import ProfileSettings from '../../screens/ProfileSettings';
 import ActiveBarComponent from './ActiveBarComponent';
 import Colors from '../../constants/Colors';
+import Loading from '../loading/Loading';
 
 
 const DashboardTabNavigator = createMaterialTopTabNavigator({
@@ -71,7 +72,6 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
     tabBarPosition: 'bottom',
   }
 )
-
 // allows us to navigate without a header
 const AppSwitchNavigator = createSwitchNavigator({
   Landing: {
@@ -92,6 +92,9 @@ const AppSwitchNavigator = createSwitchNavigator({
       headerStyle: 'none'
     },
   },
+  Loading: {
+    screen: Loading
+  }
 });
 
 export const AppContainer = createAppContainer(AppSwitchNavigator);
