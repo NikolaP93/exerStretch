@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     width: 350,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 50,
+    marginBottom: 30,
     backgroundColor: Colors.primary,
     height: 50
   },
@@ -39,6 +39,8 @@ const Card = (props) => {
     if (props.passedFunction) {
       props.passedFunction();
       props.navigation.navigate(props.href);
+    } else if(!props.navigation){
+      return;
     } else {
       props.navigation.navigate(props.href);
     }
@@ -51,14 +53,14 @@ const Card = (props) => {
       activeOpacity={0.5}
       onPress={() => { navigateAndExecuteFunction(); }}
     >
-      {props.iconTitle ? <View style={styles.withIcon}>
-        <Icon name={props.iconTitle} size={25} color={Colors.primary} style={styles.icon} />
-        <Text style={styles.text}>{props.title}</Text>
-      </View>
+      {props.iconTitle ?
+        <View style={styles.withIcon}>
+          <Icon name={props.iconTitle} size={25} color={Colors.primary} style={styles.icon} />
+          <Text style={styles.text}>{props.title}</Text>
+        </View>
         :
-        <View>
-          <Text style={[styles.text, { fontWeight: 'bold' }]}>{props.title}</Text>
-        </View>}
+        <Text style={[styles.text, { fontWeight: 'bold' }]}>{props.title}</Text>
+      }
     </TouchableOpacity>
   );
 };
