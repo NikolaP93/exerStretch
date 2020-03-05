@@ -33,33 +33,33 @@ const styles = StyleSheet.create({
   }
 });
 
-const Card = (props) => {
+const Card = ({passedFunction, navigation, href, style, iconTitle, title}) => {
   // if a function is passed to the card, execute it as well
   const navigateAndExecuteFunction = () => {
-    if (props.passedFunction) {
-      props.passedFunction();
-      props.navigation.navigate(props.href);
-    } else if(!props.navigation){
+    if (passedFunction) {
+      passedFunction();
+      navigation.navigate(href);
+    } else if(!navigation){
       return;
     } else {
-      props.navigation.navigate(props.href);
+      navigation.navigate(href);
     }
   };
 
   return (
     // inherits parents styles plus it's own, on click changes to given prop
     <TouchableOpacity
-      style={{ ...styles.container, ...props.style }}
+      style={{ ...styles.container, ...style }}
       activeOpacity={0.5}
       onPress={() => { navigateAndExecuteFunction(); }}
     >
-      {props.iconTitle ?
+      {iconTitle ?
         <View style={styles.withIcon}>
-          <Icon name={props.iconTitle} size={25} color={Colors.primary} style={styles.icon} />
-          <Text style={styles.text}>{props.title}</Text>
+          <Icon name={iconTitle} size={25} color={Colors.primary} style={styles.icon} />
+          <Text style={styles.text}>{title}</Text>
         </View>
         :
-        <Text style={[styles.text, { fontWeight: 'bold' }]}>{props.title}</Text>
+        <Text style={[styles.text, { fontWeight: 'bold' }]}>{title}</Text>
       }
     </TouchableOpacity>
   );
@@ -67,15 +67,14 @@ const Card = (props) => {
 
 Card.defaultProps = {
   passedFunction: null,
-  navigation: null,
   style: null,
   title: 'Card',
   href: 'Account',
+  iconTitle: null
 };
 
 Card.propTypes = {
   passedFunction: PropTypes.func,
-  navigation: PropTypes.object,
   style: PropTypes.object,
   title: PropTypes.string,
   href: PropTypes.string,

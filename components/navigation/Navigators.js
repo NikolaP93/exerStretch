@@ -17,61 +17,52 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   Welcome: {
     screen: Welcome,
     navigationOptions: {
-      tabBarIcon: ({ focused, tintColor }) => {
-        return (
-          // component checks if the icon is focused and returns appropriate icon
-          <ActiveBarComponent name='home' tintColor={tintColor} focused={focused} />
-        )
-      },
-    }
+      tabBarIcon: ({ focused, tintColor }) => (
+        // component checks if the icon is focused and returns appropriate icon
+        <ActiveBarComponent name="home" tintColor={tintColor} focused={focused} />
+      ),
+    },
   },
   Workout: {
     screen: Workout,
     navigationOptions: {
-      tabBarIcon: ({ focused, tintColor }) => {
-        return (
-          <ActiveBarComponent name='calendar' tintColor={tintColor} focused={focused} />
-        );
-      },
-    }
+      tabBarIcon: ({ focused, tintColor }) => (
+        <ActiveBarComponent name="calendar" tintColor={tintColor} focused={focused} />
+      ),
+    },
   },
   WorkoutList: {
     screen: WorkoutList,
     navigationOptions: {
-      tabBarIcon: ({ focused, tintColor }) => {
-        return (
-          <ActiveBarComponent name='list-alt' tintColor={tintColor} focused={focused} />
-        )
-      },
-    }
+      tabBarIcon: ({ focused, tintColor }) => (
+        <ActiveBarComponent name="list-alt" tintColor={tintColor} focused={focused} />
+      ),
+    },
   },
   ProfileSettings: {
     screen: ProfileSettings,
     navigationOptions: {
-      tabBarIcon: ({ focused, tintColor }) => {
-        return (
-          <ActiveBarComponent name='user' tintColor={tintColor} focused={focused} />
-        )
-      },
-    }
+      tabBarIcon: ({ focused, tintColor }) => (
+        <ActiveBarComponent name="user" tintColor={tintColor} focused={focused} />
+      ),
+    },
   },
 },
-  {
-    tabBarOptions: {
-      showLabel: false,
-      inactiveTintColor: Colors.primary,
-      activeTintColor: Colors.primary,
-      style: {
-        backgroundColor: 'white'
-      },
-      indicatorStyle: {
-        height: 0
-      },
-      showIcon: true
+{
+  tabBarOptions: {
+    showLabel: false,
+    inactiveTintColor: Colors.primary,
+    activeTintColor: Colors.primary,
+    style: {
+      backgroundColor: 'white',
     },
-    tabBarPosition: 'bottom',
-  }
-)
+    indicatorStyle: {
+      height: 0,
+    },
+    showIcon: true,
+  },
+  tabBarPosition: 'bottom',
+});
 // allows us to navigate without a header
 const AppSwitchNavigator = createSwitchNavigator({
   Landing: {
@@ -89,12 +80,13 @@ const AppSwitchNavigator = createSwitchNavigator({
   Welcome: {
     screen: DashboardTabNavigator,
     navigationOptions: {
-      headerStyle: 'none'
+      headerStyle: 'none',
     },
   },
   Loading: {
-    screen: Loading
-  }
+    screen: Loading,
+  },
 });
+
 
 export const AppContainer = createAppContainer(AppSwitchNavigator);
