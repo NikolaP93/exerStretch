@@ -1,48 +1,12 @@
 import React from 'react';
 import {
-  StyleSheet, View, Text, Image,
+  View, Text, Image,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import Card from '../components/Card';
-import Auxiliary from '../hoc/Auxiliary';
-import Colors from '../constants/Colors';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  textContainer: {
-    height: 300,
-    width: 400,
-    alignItems: 'center',
-    top: '25%',
-  },
-  h1: {
-    fontSize: 38,
-    marginVertical: 20,
-  },
-  h2: {
-    fontWeight: 'bold',
-    fontSize: 26,
-  },
-  h3: {
-    textAlign: 'center',
-    width: '70%',
-    marginTop: 10,
-    fontSize: 14,
-    marginBottom: 30,
-  },
-  button: {
-    fontSize: 16,
-    color: 'white',
-
-  },
-  logo: {
-    height: 150,
-    width: 150,
-    margin: 20,
-  },
-});
+import Colors from '../../constants/Colors';
+import styles from './styles';
+import Auxiliary from '../../hoc/Auxiliary';
+import ThemedButton from '../../components/UI/Button';
 
 const Landing = ({ navigation }) => (
   <Auxiliary style={styles.container}>
@@ -62,14 +26,14 @@ const Landing = ({ navigation }) => (
           We need some information to make a perfect workout experience for you.
         </Text>
         <View>
-          <Card
+        <ThemedButton
             title="Start"
-            navigation={navigation}
-            href="Account"
+            onPress={() => navigation.navigate('Account')}
           />
+          
         </View>
 
-        <Image source={require('../assets/yoga.png')} style={styles.logo} />
+        <Image source={require('../../assets/yoga.png')} style={styles.logo} />
       </View>
     </LinearGradient>
   </Auxiliary>

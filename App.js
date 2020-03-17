@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { SafeAreaView } from 'react-native';
 
+
 //firebase config
 import * as firebase from 'firebase';
 import ENV from './environment.js';
@@ -17,13 +18,13 @@ const App = () => {
 
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <LoadingContext.Provider value={{ loading, setLoading }}>
-        <UserContext.Provider value={{ user, setUser }}>
-          <AppContainer/>
-        </UserContext.Provider>
-      </LoadingContext.Provider>
-    </SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
+        <LoadingContext.Provider value={{ loading, setLoading }}>
+          <UserContext.Provider value={{ user, setUser }}>
+            <AppContainer />
+          </UserContext.Provider>
+        </LoadingContext.Provider>
+      </SafeAreaView>
   )
 };
 

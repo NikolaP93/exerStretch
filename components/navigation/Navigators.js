@@ -2,15 +2,15 @@ import React from 'react';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-import Landing from '../../screens/Landing';
-import Account from '../../screens/Account';
-import Welcome from '../../screens/Welcome';
-import Workout from '../../screens/Workout';
-import WorkoutList from '../../screens/WorkoutList';
-import ProfileSettings from '../../screens/ProfileSettings';
-import ActiveBarComponent from './ActiveBarComponent';
-import Colors from '../../constants/Colors';
-import Loading from '../loading/Loading';
+import Landing from '../../screens/Landing/Landing';
+import Account from '../../screens/Account/Account';
+import Welcome from '../../screens/Welcome/Welcome';
+import Workout from '../../screens/Workout/Workout';
+import WorkoutList from '../../screens/WorkoutList/WorkoutList';
+import ProfileSettings from '../../screens/ProfileSettings/ProfileSettings';
+import ActiveBarComponent from './ActiveBarComponent/';
+import Colors from '../../constants/Colors/';
+import Loading from '../loading/Loading/';
 
 
 const DashboardTabNavigator = createMaterialTopTabNavigator({
@@ -48,21 +48,21 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
     },
   },
 },
-{
-  tabBarOptions: {
-    showLabel: false,
-    inactiveTintColor: Colors.primary,
-    activeTintColor: Colors.primary,
-    style: {
-      backgroundColor: 'white',
+  {
+    tabBarOptions: {
+      showLabel: false,
+      inactiveTintColor: Colors.primary,
+      activeTintColor: Colors.primary,
+      style: {
+        backgroundColor: 'white',
+      },
+      indicatorStyle: {
+        height: 0,
+      },
+      showIcon: true,
     },
-    indicatorStyle: {
-      height: 0,
-    },
-    showIcon: true,
-  },
-  tabBarPosition: 'bottom',
-});
+    tabBarPosition: 'bottom',
+  });
 // allows us to navigate without a header
 const AppSwitchNavigator = createSwitchNavigator({
   Landing: {
