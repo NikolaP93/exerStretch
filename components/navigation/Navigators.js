@@ -1,6 +1,7 @@
 import React from 'react';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import Landing from '../../screens/Landing/Landing';
 import Account from '../../screens/Account/Account';
@@ -8,9 +9,10 @@ import Welcome from '../../screens/Welcome/Welcome';
 import Workout from '../../screens/Workout/Workout';
 import WorkoutList from '../../screens/WorkoutList/WorkoutList';
 import ProfileSettings from '../../screens/ProfileSettings/ProfileSettings';
+import EditProfile from '../../screens/ProfileSettings/EditProfile/EditProfile';
+
 import ActiveBarComponent from './ActiveBarComponent/';
 import Colors from '../../constants/Colors/';
-import Loading from '../loading/Loading/';
 
 
 const DashboardTabNavigator = createMaterialTopTabNavigator({
@@ -82,11 +84,25 @@ const AppSwitchNavigator = createSwitchNavigator({
     navigationOptions: {
       headerStyle: 'none',
     },
-  },
-  Loading: {
-    screen: Loading,
-  },
+  }
 });
 
+const StackNavigator = createStackNavigator({
+  AppSwitchNavigator: {
+    screen: AppSwitchNavigator,
+    navigationOptions: {
+      headerShown: false
+    }
+  },
+  DashboardTabNavigator: DashboardTabNavigator,
+  EditProfile: {
+    screen: EditProfile,
+    navigationOptions: {
+      headerTitle: 'Edit Profile',
+      headerTransparent: true
+    }
+  },
+})
 
-export const AppContainer = createAppContainer(AppSwitchNavigator);
+
+export const AppContainer = createAppContainer(StackNavigator);

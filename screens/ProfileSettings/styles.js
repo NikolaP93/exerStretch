@@ -9,20 +9,4 @@ export default styles = StyleSheet.create({
     itemsContainer: {
         marginTop: '10%',
     },
-    containerStyle: {
-        backgroundColor: '#ffffff',
-        alignItems: 'flex-start',
-        marginTop: 30,
-        height: 40,
-        position: 'relative'
-    },
-    buttonStyle: {
-        backgroundColor: '#ffffff'
-    },
-    icon: {
-        position: 'absolute',
-        left: 10
-    },
-    
-    
 });

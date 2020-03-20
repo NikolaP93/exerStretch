@@ -1,35 +1,53 @@
 import React from 'react';
 import { View } from 'react-native';
-import ThemedButton from '../../components/UI/Button';
-import styles from './style';
+import { ThemeProvider, Card, Icon, Text } from 'react-native-elements';
 
+import styles from './style';
+import { theme } from '../../components/UI/Themes';
 
 const MealContainer = () => {
   const mealData = [
     {
       id: 1,
-      href: 'Welcome',
-      title: 'Breakfast',
+      title: `Breakfast`,
+      color: '#fee1bc',
+      iconName: 'cookie'
     },
     {
       id: 2,
-      href: 'Welcome',
       title: 'Lunch',
+      color: '#90EE90',
+      iconName: 'corn'
     },
     {
       id: 3,
-      href: 'Welcome',
       title: 'Dinner',
+      color: '#e6e6fa',
+      iconName: 'duck'
     },
   ];
 
   return (
     <View style={styles.container}>
-      {mealData.map((item) =>
-        <ThemedButton
-          title={item.title}
-          key={item.id}
-          buttonStyle={styles.buttonStyle} />)}
+      <ThemeProvider theme={theme.secondary}>
+        {mealData.map((item) =>
+          <Card
+            key={item.id}
+            containerStyle={{ backgroundColor: item.color}}
+          >
+            <Icon
+              name={item.iconName}
+              type='material-community'
+              size={25}
+            />
+            <View style={styles.titleContainer}>
+              <Text>Breakfast</Text>
+              <Text>Salad</Text>
+            </View>
+          </Card>
+        )}
+      </ThemeProvider>
+
     </View>
   );
 };

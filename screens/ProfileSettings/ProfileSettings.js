@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import { View, FlatList } from 'react-native';
 import styles from './styles';
-
+import { Button, ThemeProvider } from 'react-native-elements';
 import Auxiliary from '../../hoc/Auxiliary';
-import ThemedButton from '../../components/UI/Button';
 
 import { signOutWithGoogleAsync } from '../GoogleSignIn/GoogleAuth';
+import Colors from '../../constants/Colors';
+import { theme } from '../../components/UI/Themes';
 
 const ProfileSettings = ({ navigation }) => {
+
+
+  const signOut = () => {
+    signOutWithGoogleAsync();
+    navigation.navigate('Account')
+  }
   const data = [
     {
       id: 'Edit Profile',
       title: 'Edit Profile',
-      iconTitle: 'user',
+      iconTitle: 'account-circle',
     },
     {
       id: 'Exercise Packs',
@@ -22,12 +29,12 @@ const ProfileSettings = ({ navigation }) => {
     {
       id: 'Reminder',
       title: 'Reminder',
-      iconTitle: 'bell',
+      iconTitle: 'alarm',
     },
     {
       id: 'Sound',
       title: 'Sound',
-      iconTitle: 'music',
+      iconTitle: 'library-music',
     },
     {
       id: 'About',
@@ -37,8 +44,8 @@ const ProfileSettings = ({ navigation }) => {
     {
       id: 'Logout',
       title: 'Logout',
-      iconTitle: 'sign-out',
-      passedFunction: signOutWithGoogleAsync,
+      iconTitle: 'power-settings-new',
+      onPress: signOut,
       href: 'Account',
     },
 
@@ -50,13 +57,14 @@ const ProfileSettings = ({ navigation }) => {
         <FlatList
           data={data}
           renderItem={({ item }) => (
-            <ThemedButton
-            title={item.title}
-            iconTitle={item.iconTitle}
-            containerStyle={styles.containerStyle}
-            buttonStyle={styles.buttonStyle}
-            iconContainerStyle={styles.icon}
-            />
+            <ThemeProvider theme={theme.transparent}>
+              <Button
+                title={item.title}
+                icon={{ name: item.iconTitle, color: Colors.primary }}
+                onPress={() => navigation.navigate('EditProfile')}
+              />
+            </ThemeProvider>
+
           )}
         />
       </View>

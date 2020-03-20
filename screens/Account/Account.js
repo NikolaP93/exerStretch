@@ -5,11 +5,12 @@ import styles from './styles';
 import { UserContext } from '../../Contexts/UserContext';
 import { LoadingContext } from '../../Contexts/LoadingContext';
 import Auxiliary from '../../hoc/Auxiliary';
-import ThemedButton from '../../components/UI/Button';
+import { Button, ThemeProvider } from 'react-native-elements';
 import { signInWithGoogleAsync } from '../GoogleSignIn/GoogleAuth';
+import { theme } from '../../components/UI/Themes';
 
 const Account = ({ navigation }) => {
-  const { setUser } = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
   const { setLoading } = useContext(LoadingContext);
 
 
@@ -20,13 +21,14 @@ const Account = ({ navigation }) => {
       }
     });
     setLoading(false);
-  }, [setLoading]);
+  }, []);
 
+  // logs into firebase with google credentials and passes the user data into the context
   const googleLogin = async () => {
     setLoading(true);
     const result = await signInWithGoogleAsync();
     if (result && result.type === 'success') {
-      setUser(result);
+      dispatch({type: 'UPDATE', payload: result.user})
       navigation.navigate('Welcome');
     } else {
       navigation.navigate('Account');
@@ -35,10 +37,12 @@ const Account = ({ navigation }) => {
   };
 
   const content = (
-    <ThemedButton
-      title="Google Login"
-      onPress={googleLogin}
-    />
+    <ThemeProvider theme={theme.primary}>
+      <Button
+        title="Google Login"
+        onPress={googleLogin}
+      />
+    </ThemeProvider>
   );
 
   return (
