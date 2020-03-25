@@ -22,6 +22,7 @@ export default styles = StyleSheet.create({
         marginBottom: 5,
     },
     h2: {
+        color: '#ffffff',
         fontSize: 20,
         fontWeight: '600',
     },

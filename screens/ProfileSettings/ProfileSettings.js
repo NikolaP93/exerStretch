@@ -20,6 +20,7 @@ const ProfileSettings = ({ navigation }) => {
       id: 'Edit Profile',
       title: 'Edit Profile',
       iconTitle: 'account-circle',
+      onPress: () => navigation.navigate('EditProfile')
     },
     {
       id: 'Exercise Packs',
@@ -61,7 +62,7 @@ const ProfileSettings = ({ navigation }) => {
               <Button
                 title={item.title}
                 icon={{ name: item.iconTitle, color: Colors.primary }}
-                onPress={() => navigation.navigate('EditProfile')}
+                onPress={item.onPress}
               />
             </ThemeProvider>
 

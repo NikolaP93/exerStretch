@@ -1,13 +1,15 @@
+import React, { useContext } from 'react';
 import firebase from 'firebase';
 import * as Google from 'expo-google-app-auth';
 import ENV from '../../environment';
+import { UserContext } from '../../Contexts/UserContext';
 
 const isUserEqual = (googleUser, firebaseUser) => {
   if (firebaseUser) {
     const { providerData } = firebaseUser;
     for (let i = 0; i < providerData.length; i++) {
       if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID
-                && providerData[i].uid === googleUser.getBasicProfile().getId()) {
+        && providerData[i].uid === googleUser.getBasicProfile().getId()) {
         // We don't need to reauth the Firebase connection.
         return true;
       }
@@ -17,6 +19,7 @@ const isUserEqual = (googleUser, firebaseUser) => {
 };
 
 const onSignIn = (googleUser) => {
+
   // We need to register an Observer on Firebase Auth to make sure auth is initialized.
   const unsubscribe = firebase.auth().onAuthStateChanged((firebaseUser) => {
     unsubscribe();
@@ -53,20 +56,12 @@ export const signInWithGoogleAsync = async () => {
     });
     if (result.type === 'success') {
       onSignIn(result);
-      // Build Firebase credential with the Facebook access token.
-      const credential = firebase.auth.GoogleAuthProvider.credential(result);
-
-
-      // Sign in with credential from the Facebook user.
-      firebase.auth().signInWithCredential(credential).catch(() => {
-        // Handle Errors here.
-      });
     } else {
       return new Error('Login failed');
     }
     return result;
   } catch (e) {
-    console.log(e);
+    console.log('Failed to login with Google' + e);
   }
 };
 

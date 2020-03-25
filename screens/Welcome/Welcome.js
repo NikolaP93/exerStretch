@@ -6,7 +6,6 @@ import Header from '../../components/header/Header';
 import ChartContainer from '../../containers/ChartContainer/ChartContainer';
 import MealContainer from '../../containers/MealContainer/MealContainer';
 import Auxiliary from '../../hoc/Auxiliary';
-
 import { UserContext } from '../../Contexts/UserContext';
 import { LoadingContext } from '../../Contexts/LoadingContext';
 import styles from './styles';
@@ -19,8 +18,11 @@ const Welcome = () => {
 
 
   useEffect(() => {
-    setLoading(false);
-  }, [setLoading]);
+    if (state.givenName) {
+      setLoading(false);
+    }
+  }, [setLoading, state]);
+
 
   return (
     <Auxiliary>
@@ -28,7 +30,7 @@ const Welcome = () => {
         <Header style={styles.container}>
           <View style={styles.titles}>
             <Text style={styles.h1}>Good Morning</Text>
-            <Text style={{ ...styles.h2, color: '#ffffff' }}>{state.name}</Text>
+            <Text style={{ ...styles.h2 }}>{state.givenName}</Text>
           </View>
           <Image source={require('../../assets/yoga.png')} style={styles.logo} />
           <Image source={require('../../assets/sun.png')} style={styles.sun} />
@@ -36,6 +38,7 @@ const Welcome = () => {
         <ChartContainer />
         <MealContainer />
       </ScrollView>
+
     </Auxiliary>
   );
 };
