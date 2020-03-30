@@ -24,7 +24,7 @@ const Landing = ({ navigation }) => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         firebase.database().ref(`/users/${user.uid}`).on('value', (snapshot) => {
-          dispatch({ type: 'UPDATE', payload: snapshot.val()});
+          dispatch({ type: 'UPDATE', payload: snapshot.val() });
         });
         navigation.navigate('Welcome');
       } else {

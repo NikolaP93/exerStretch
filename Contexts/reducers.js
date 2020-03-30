@@ -3,8 +3,11 @@ export const reducer = (state, action) => {
         case 'UPDATE':
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
+                name: `${action.payload.familyName} ${action.payload.givenName}`
             };
+        case 'REMOVE':
+            return null;
         default: return state;
     }
 }

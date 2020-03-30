@@ -9,6 +9,7 @@ import Auxiliary from '../../hoc/Auxiliary';
 import { UserContext } from '../../Contexts/UserContext';
 import { LoadingContext } from '../../Contexts/LoadingContext';
 import styles from './styles';
+import { signOutAsync } from 'expo-google-sign-in';
 
 const Welcome = () => {
   // destructure user object returned from user
@@ -16,13 +17,13 @@ const Welcome = () => {
 
   const { setLoading } = useContext(LoadingContext);
 
-
   useEffect(() => {
-    if (state.givenName) {
+    console.log('use effect')
+    console.log(state.name)
+    if (state.name) {
       setLoading(false);
     }
-  }, [setLoading, state]);
-
+  }, [state]);
 
   return (
     <Auxiliary>
@@ -30,7 +31,7 @@ const Welcome = () => {
         <Header style={styles.container}>
           <View style={styles.titles}>
             <Text style={styles.h1}>Good Morning</Text>
-            <Text style={{ ...styles.h2 }}>{state.givenName}</Text>
+            <Text style={{ ...styles.h2 }}>{state.name}</Text>
           </View>
           <Image source={require('../../assets/yoga.png')} style={styles.logo} />
           <Image source={require('../../assets/sun.png')} style={styles.sun} />
@@ -38,7 +39,6 @@ const Welcome = () => {
         <ChartContainer />
         <MealContainer />
       </ScrollView>
-
     </Auxiliary>
   );
 };

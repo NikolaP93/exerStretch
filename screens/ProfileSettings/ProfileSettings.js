@@ -7,12 +7,16 @@ import Auxiliary from '../../hoc/Auxiliary';
 import { signOutWithGoogleAsync } from '../GoogleSignIn/GoogleAuth';
 import Colors from '../../constants/Colors';
 import { theme } from '../../components/UI/Themes';
+import { UserContext } from '../../Contexts/UserContext';
 
 const ProfileSettings = ({ navigation }) => {
+
+  const { state, dispatch } = useContext(UserContext);
 
 
   const signOut = () => {
     signOutWithGoogleAsync();
+    dispatch({type: 'REMOVE'})
     navigation.navigate('Account')
   }
   const data = [

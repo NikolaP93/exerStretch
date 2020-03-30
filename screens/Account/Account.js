@@ -18,6 +18,7 @@ const Account = ({ navigation }) => {
     setLoading(true);
     const result = await signInWithGoogleAsync();
     if (result && result.type === 'success') {
+      dispatch({type: 'UPDATE', payload: result.user});
       navigation.navigate('Welcome');
     } else {
       navigation.navigate('Account');
