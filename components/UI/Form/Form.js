@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { View, Image, TextInput } from 'react-native';
-import { Button } from 'react-native-elements';
+import React from 'react';
+import { View, } from 'react-native';
+import { Input, Button, ThemeProvider, Text } from 'react-native-elements';
 import { Formik } from 'formik';
 import { compose } from 'recompose';
 import {
@@ -8,40 +8,41 @@ import {
     withNextInputAutoFocusInput,
     withNextInputAutoFocusForm,
 } from 'react-native-formik';
+import { theme } from '../Themes';
 
 const MyInput = compose(
     handleTextInput,
     withNextInputAutoFocusInput,
-)(TextInput);
+)(Input);
 
 const Form = withNextInputAutoFocusForm(View);
 
 const UserForm = ({ initialValues, handleSubmit }) => {
 
     return (
-        <View>
-            <Formik
-                initialValues={initialValues}
-                onSubmit={(values) => {
-                    handleSubmit(values);
-                }}
-            >
-                {({
-                    handleChange, handleBlur, handleSubmit, values,
-                }) => (
-                        <Form>
+        <Formik
+            initialValues={initialValues}
+            onSubmit={(values) => {
+                handleSubmit(values);
+            }}
+        >
+            {({
+                handleChange, handleBlur, handleSubmit, values,
+            }) => (
+                    <Form style={{ alignItems: 'center' }}>
+                        <ThemeProvider theme={theme.primary}>
                             <MyInput
                                 label="Email"
                                 name="email"
                                 onChange={handleChange('email')}
                             />
                             <MyInput
-                                label="Email"
+                                label="Last Name"
                                 name="familyName"
                                 onChange={handleChange('familyName')}
                             />
                             <MyInput
-                                label="Email"
+                                label="First Name"
                                 name="givenName"
                                 onChange={handleChange('givenName')}
                             />
@@ -67,10 +68,11 @@ const UserForm = ({ initialValues, handleSubmit }) => {
                                 onChange={handleChange('weight')}
                             />
                             <Button title="Submit" onPress={handleSubmit} />
-                        </Form>
-                    )}
-            </Formik>
-        </View>
+                        </ThemeProvider>
+                    </Form>
+                )}
+        </Formik>
+
     );
 };
 

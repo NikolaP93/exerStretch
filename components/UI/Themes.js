@@ -19,6 +19,15 @@ export const theme = {
                 width: '100%',
 
             }
+        },
+        Input: {
+            containerStyle: {
+                width: '90%',
+                marginBottom: 5
+            },
+            labelStyle: {
+                color: Colors.primary
+            }
         }
     },
     secondary: {

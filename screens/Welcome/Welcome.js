@@ -9,7 +9,6 @@ import Auxiliary from '../../hoc/Auxiliary';
 import { UserContext } from '../../Contexts/UserContext';
 import { LoadingContext } from '../../Contexts/LoadingContext';
 import styles from './styles';
-import { signOutAsync } from 'expo-google-sign-in';
 
 const Welcome = () => {
   // destructure user object returned from user
